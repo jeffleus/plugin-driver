@@ -29,6 +29,24 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 	
+            $scope.getToken = function() {
+            awsUserPluginInstance.getToken({}, function(res) {
+                                           console.log(res);
+                                           }, function(err) {
+                                           console.log(err);
+                                           });
+            }
+	
+            function login() {
+            awsUserPluginInstance.signIn({"username":"fsdemo-manager", "password":"FuelStation17!"}, function(res) {
+                                         // Success
+                                         console.log(res);
+                                         }, function(err) {
+                                         // Error : err
+                                         });
+            }
+            
+    var awsUserPluginInstance;
 	$scope.echo = function() {
             var cognitoIdentityUserPoolId = "us-west-2_KMI3gTfQw";
             var cognitoIdentityUserPoolAppClientId = "49f7iepq786236nea8t33m1kje";
@@ -39,15 +57,22 @@ angular.module('starter.controllers', [])
                 "CognitoIdentityUserPoolAppClientId": cognitoIdentityUserPoolAppClientId,
                 "arnIdentityPoolId": cognitoArnIdentityPoolId
             };
+            
+            awsUserPluginInstance = new AwsUserPoolPlugin(options, function() {
+                                                              console.log("connectionPluginInstance Init Ok");
+                                                          login();
+                                                              }, function() {
+                                                              console.log("connectionPluginInstance Init Fail");
+                                                              });
 
-            window.MyCordovaPlugin.init(options,function(result) {
-			//callback
-			console.log(result);
-			$ionicPopup.alert({
-				 title: 'Title',
-				 template: 'Alert message'
-			  });
-		})
+//            window.MyCordovaPlugin.init(options,function(result) {
+//			//callback
+//			console.log(result);
+//			$ionicPopup.alert({
+//				 title: 'Title',
+//				 template: 'Alert message'
+//			  });
+//		})
 	};
 
   // Perform the login action when the user submits the login form
