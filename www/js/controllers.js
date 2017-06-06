@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
             }
 	
             function login() {
-            awsUserPluginInstance.signIn({"username":"fsdemo-manager", "password":"FuelStation17!"}, function(res) {
+            awsUserPluginInstance.logIn({"username":"fsdemo-manager", "password":"FuelStation17!"}, function(res) {
                                          // Success
                                          console.log(res);
                                          }, function(err) {
