@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
             }
 	
             function login() {
-            awsUserPluginInstance.logIn({"username":"fsdemo-manager", "password":"FuelStation17!"}, function(res) {
+            awsUserPluginInstance.logIn({"username":"XXX-USERNAME-XXX", "password":"XXX-PASSWORD-XXX"}, function(res) {
                                          // Success
                                          console.log(res);
                                          }, function(err) {
@@ -48,9 +48,9 @@ angular.module('starter.controllers', [])
             
     var awsUserPluginInstance;
 	$scope.echo = function() {
-            var cognitoIdentityUserPoolId = "us-west-2_KMI3gTfQw";
-            var cognitoIdentityUserPoolAppClientId = "49f7iepq786236nea8t33m1kje";
-            var cognitoArnIdentityPoolId = "us-west-2:28695927-b308-4073-acd6-fedc4e1cd40b";
+            var cognitoIdentityUserPoolId = "us-west-2_***- USERPOOL -***";
+            var cognitoIdentityUserPoolAppClientId = "***- CLIENTID -***";
+            var cognitoArnIdentityPoolId = "us-west-2:***- IDENTITY POOL ID -***";
             
             var options = {
                 "CognitoIdentityUserPoolId": cognitoIdentityUserPoolId,
